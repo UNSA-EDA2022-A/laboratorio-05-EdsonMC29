@@ -9,14 +9,33 @@ public class Exercise1 {
         Scanner sc = new Scanner(System.in);
         while (true) {
             String s = sc.nextLine();
-            System.out.println(obj.esBalanceado(s));
+            
+            if(s == "") {
+            	System.out.println("La cadena esta vacia!.");
+            	}
+            else
+            	System.out.println(obj.esBalanceado(s));
         }
     }
 
     public boolean esBalanceado(String s) {
         MyStack<Character> stack = new LinkedListStack<>();
-        // Colocar codigo aqui
-
-        return false;
+        char caracteres[] = s.toCharArray();
+        
+        for(int i=0; i< caracteres.length; i++) {
+        	
+        	if(caracteres[i] == '(' || caracteres[i] == '[' || caracteres[i] == '{') {
+        		stack.push(caracteres[i]);
+        	}
+        	else if(caracteres[i] == ')' || caracteres[i] == ']' || caracteres[i] == '}') {
+        		if(!stack.isEmpty()) {
+        			stack.pop();
+        			
+        		} else {	
+        			break;
+        		}
+        	}	 	
+        }
+        return stack.isEmpty();
     }
 }
