@@ -26,8 +26,6 @@ public class Exercise2 {
 		        	else if(caracteres[i] == ')') {
 		        		if(!stack.isEmpty()) {
 		        			stack.pop();
-		        			if(caracteres[i+1]== ')')
-		        				countChar++;
 		        		} else {
 		        			countChar++;
 		        			break;
