@@ -14,8 +14,32 @@ public class Exercise2 {
 
     public boolean existenDuplicados(String str) {
         MyStack<Character> stack = new LinkedListStack<>();
-        // Colocar codigo aqui
-
-        return false;
+        char caracteres[] = str.toCharArray();
+        int countChar = 0;
+        int countOper = 0;
+		for(int i=0; i< caracteres.length; i++) {
+		        	
+		        	if(caracteres[i] == '(') {
+		        		stack.push('(');
+		        		countChar++;
+		        	}
+		        	else if(caracteres[i] == ')') {
+		        		if(!stack.isEmpty()) {
+		        			stack.pop();
+		        			if(caracteres[i+1]== ')')
+		        				countChar++;
+		        		} else {
+		        			countChar++;
+		        			break;
+		        		}
+		        	}
+		        	if(caracteres[i] == '+' || caracteres[i] == '-' ) {
+		        		countOper++;
+		        	}	        	
+		        }
+		if(countChar - countOper < 1 )
+			return false;
+		else 
+			return true;
     }
 }
