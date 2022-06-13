@@ -26,16 +26,17 @@ public class Exercise2 {
 		        	else if(caracteres[i] == ')') {
 		        		if(!stack.isEmpty()) {
 		        			stack.pop();
+		        			countChar++;
 		        		} else {
 		        			countChar++;
 		        			break;
 		        		}
 		        	}
-		        	if(caracteres[i] == '+' || caracteres[i] == '-' ) {
+		        	else {
 		        		countOper++;
 		        	}	        	
 		        }
-		if(countChar - countOper < 1 )
+		if(countChar - countOper <= 1 )
 			return false;
 		else 
 			return true;
